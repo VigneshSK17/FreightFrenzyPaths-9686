@@ -15,13 +15,15 @@ import javafx.scene.shape.Rectangle
 import javafx.stage.Stage
 import javafx.util.Duration
 
+import trajs.BlueParkingTrajectoryGen
+
 class App : Application() {
     val robotRect = Rectangle(100.0, 100.0, 10.0, 10.0)
     val startRect = Rectangle(100.0, 100.0, 10.0, 10.0)
     val endRect = Rectangle(100.0, 100.0, 10.0, 10.0)
 
     var startTime = Double.NaN
-    val trajectories = TrajectoryGen.createTrajectory()
+    val trajectories = BlueParkingTrajectoryGen.createTrajectory()
 
     lateinit var fieldImage: Image
     lateinit var stage: Stage
@@ -81,7 +83,7 @@ class App : Application() {
 
         gc.globalAlpha = 0.5
         GraphicsUtil.setColor(Color.RED)
-        TrajectoryGen.drawOffbounds()
+        DefaultTrajectoryGen.drawOffbounds()
         gc.globalAlpha = 1.0
 
         val trajectory = trajectories[activeTrajectoryIndex]

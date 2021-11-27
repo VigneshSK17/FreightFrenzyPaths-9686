@@ -1,3 +1,5 @@
+package trajs
+
 import com.acmerobotics.roadrunner.geometry.Pose2d
 import com.acmerobotics.roadrunner.geometry.Vector2d
 import com.acmerobotics.roadrunner.trajectory.Trajectory
@@ -5,7 +7,7 @@ import com.acmerobotics.roadrunner.trajectory.TrajectoryBuilder
 import com.acmerobotics.roadrunner.trajectory.constraints.DriveConstraints
 import com.acmerobotics.roadrunner.trajectory.constraints.MecanumConstraints
 
-object TrajectoryGen {
+object RedParkingTrajectoryGen {
     // Remember to set these constraints to the same values as your DriveConstants.java file in the quickstart
     private val driveConstraints = DriveConstraints(60.0, 60.0, 0.0, 270.0.toRadians, 270.0.toRadians, 0.0)
 
@@ -14,14 +16,14 @@ object TrajectoryGen {
 
     private val combinedConstraints = MecanumConstraints(driveConstraints, trackWidth)
 
-    private val startPose = Pose2d(-48.0, -48.0, 90.0.toRadians)
+    private val startPose = Pose2d(0.0, -62.0, 0.0.toRadians1)
 
     fun createTrajectory(): ArrayList<Trajectory> {
         val list = ArrayList<Trajectory>()
 
         val builder1 = TrajectoryBuilder(startPose, startPose.heading, combinedConstraints)
 
-        builder1.forward(40.0);
+        builder1.forward(35.0);
 
         // Small Example Routine
 //        builder1
@@ -38,4 +40,4 @@ object TrajectoryGen {
     }
 }
 
-val Double.toRadians get() = (Math.toRadians(this))
+val Double.toRadians1 get() = (Math.toRadians(this))
