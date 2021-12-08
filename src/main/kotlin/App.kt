@@ -14,9 +14,8 @@ import javafx.scene.shape.Rectangle
 
 import javafx.stage.Stage
 import javafx.util.Duration
+import trajs.AutonRedGen
 
-import trajs.BlueParkingTrajectoryGen
-import trajs.TestTrajectoryGen
 
 class App : Application() {
     val robotRect = Rectangle(100.0, 100.0, 10.0, 10.0)
@@ -25,7 +24,7 @@ class App : Application() {
 
     var startTime = Double.NaN
     // TODO: Change this value to the name of the file
-    val trajectories = TestTrajectoryGen.createTrajectory()
+    val trajectories = AutonRedGen.createTrajectory()
 
     lateinit var fieldImage: Image
     lateinit var stage: Stage
