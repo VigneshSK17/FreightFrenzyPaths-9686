@@ -17,6 +17,7 @@ import javafx.util.Duration
 import trajs.AutonBlueGen
 import trajs.AutonRedGen
 import trajs.BlueMakeshiftAuto
+import trajs.RedMakeshiftAuto
 
 
 class App : Application() {
@@ -26,7 +27,7 @@ class App : Application() {
 
     var startTime = Double.NaN
     // TODO: Change this value to the name of the file
-    val trajectories = BlueMakeshiftAuto.createTrajectory()
+    val trajectories = RedMakeshiftAuto.createTrajectory()
 
     lateinit var fieldImage: Image
     lateinit var stage: Stage
