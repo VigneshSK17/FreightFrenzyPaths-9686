@@ -1,3 +1,4 @@
+import com.acmerobotics.roadrunner.geometry.Vector2d
 import javafx.animation.KeyFrame
 import javafx.animation.Timeline
 import javafx.application.Application
@@ -16,6 +17,15 @@ import javafx.stage.Stage
 import javafx.util.Duration
 
 import trajs.BlueParkingTrajectoryGen
+import trajs.BlueShippingHubTrajectoryGen
+import trajs.BlueWarehouseTrajectoryGen
+import trajs.BlueLoadedShippingHubTrajectoryGen
+
+import trajs.RedParkingTrajectoryGen
+import trajs.RedLoadedShippingHubTrajectoryGen
+import trajs.RedShippingHubTrajectoryGen
+import trajs.RedWarehouseTrajectoryGen
+
 import trajs.TestTrajectoryGen
 
 class App : Application() {
@@ -24,8 +34,9 @@ class App : Application() {
     val endRect = Rectangle(100.0, 100.0, 10.0, 10.0)
 
     var startTime = Double.NaN
+
     // TODO: Change this value to the name of the file
-    val trajectories = TestTrajectoryGen.createTrajectory()
+    val trajectories = BlueWarehouseTrajectoryGen.createTrajectory()
 
     lateinit var fieldImage: Image
     lateinit var stage: Stage
@@ -83,10 +94,31 @@ class App : Application() {
 
         gc.lineWidth = GraphicsUtil.LINE_THICKNESS
 
+        //region Edit start positions for robot
+        //region Red Alliance
+        gc.globalAlpha = 0.5
+        GraphicsUtil.setColor(Color.BLUE)
+        GraphicsUtil.fillRect(Vector2d(9.0, 63.0), 18.0, 18.0)
+        gc.globalAlpha = 1.0
+
+        gc.globalAlpha = 0.5
+        GraphicsUtil.setColor(Color.BLUE)
+        GraphicsUtil.fillRect(Vector2d(-33.0, 63.0), 18.0, 18.0)
+        gc.globalAlpha = 1.0
+        //endregion
+
+        //region BlueAlliance
         gc.globalAlpha = 0.5
         GraphicsUtil.setColor(Color.RED)
-        DefaultTrajectoryGen.drawOffbounds()
+        GraphicsUtil.fillRect(Vector2d(9.0, -63.0), 18.0, 18.0)
         gc.globalAlpha = 1.0
+
+        gc.globalAlpha = 0.5
+        GraphicsUtil.setColor(Color.RED)
+        GraphicsUtil.fillRect(Vector2d(-33.0, -63.0), 18.0, 18.0)
+        gc.globalAlpha = 1.0
+        //endregion
+        //endregion
 
         val trajectory = trajectories[activeTrajectoryIndex]
 

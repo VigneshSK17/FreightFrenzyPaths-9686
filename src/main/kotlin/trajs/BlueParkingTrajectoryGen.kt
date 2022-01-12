@@ -1,3 +1,4 @@
+//NOTE BLUE LINE MEANS BACKWARDS
 package trajs
 
 import com.acmerobotics.roadrunner.geometry.Pose2d
@@ -40,4 +41,4 @@ object BlueParkingTrajectoryGen {
     }
 }
 
-val Double.toRadians get() = (Math.toRadians(this))
+val Double.toRadians2 get() = (Math.toRadians(this))
